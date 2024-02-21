@@ -25,13 +25,13 @@ export function productDetails({ commit }, id) {
 
 export function addCart({ commit, getters }, payload) {
     let cart = getters.cart
-    cart.push(payload)
+    let data = payload.product
+    data["quantity"] = payload.quantity
+    cart.push(data)
     commit("setCart", cart)
 }
 
 //удаление из корзины
-
-//store/product/actions.js
 export function removeCart({ commit, getters }, id) {
     let cart = []
     if (id) {
